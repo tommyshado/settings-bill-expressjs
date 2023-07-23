@@ -1,7 +1,7 @@
 import express from "express";
 import { engine } from "express-handlebars";
 import bodyParser from "body-parser";
-import settingsBill from "settings-bill.js";
+import settingsBill from "./settings-bill.js";
 
 // instance of express module
 const app = express();
@@ -41,11 +41,21 @@ app.post("/settings", (req, res) => {
         criticalLevel: req.body.criticalLevel
     })
 
-    console.log(billWithSettings.getSettings());
-
     res.redirect("/");
 });
 
+
+app.post("/action", () => {
+
+});
+
+app.get("/actions", () => {
+
+});
+
+app.get("/actions:type", () => {
+    
+});
 
 const PORT = process.env.PORT || 3007;
 
