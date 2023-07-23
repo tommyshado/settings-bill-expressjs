@@ -24,7 +24,13 @@ app.use(express.static("public"));
 // ROUTES:
 
 app.get("/", (req, res) => {
-    res.render("index");
+
+    // here we are rendering the billWithSettings.getSettings object, by setting the key settings with those
+    // values, so that we can just look up the methods returned by billWithSettings.getSettings
+    res.render("index", {
+                            settings: billWithSettings.getSettings(),
+                            totals: billWithSettings.totals()
+                        });
 });
 
 
@@ -45,16 +51,20 @@ app.post("/settings", (req, res) => {
 });
 
 
-app.post("/action", () => {
+app.post("/action", (req, res) => {
 
+    billWithSettings.recordAction(req.body.actionType);
+
+    res.redirect("/");
 });
 
-app.get("/actions", () => {
-
+app.get("/actions", (req, res) => {
+    res.render("actions", {actions: billWithSettings.actions()});
 });
 
-app.get("/actions:type", () => {
-    
+app.get("/actions/:actionType", (req, res) => {
+    const actionType = req.params.actionType;
+    res.render("actions", {actions: billWithSettings.actionsFor(actionType)});
 });
 
 const PORT = process.env.PORT || 3007;
