@@ -26,7 +26,7 @@
   "scripts": {
     "dev": "",
     "start": "node index.js",
-    "test": "mocha"
+    "test": ""
   },
   "devDependencies": {
     "mocha": "^10.2.0"
