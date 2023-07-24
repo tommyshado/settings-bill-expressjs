@@ -106,7 +106,9 @@ export default () => {
 
     const hasReachedCriticalLevel = () => {
         const total = grandTotal();
-        return total >= criticalLevel;
+        if (total >= criticalLevel) {
+            return "danger";
+        };
     }
 
     return {

@@ -66,11 +66,15 @@
                         <a href="/actions">Total</a>
                       </td>
 
-                      {{#if criticalLevel}}
-                        <td> R<span class="danger" class="totalSettings">{{totals.grandTotal}}</span> </td>
-                      {{else if warningLevel}}
-                        <td> R<span class="warning" class="totalSettings">{{totals.grandTotal}}</span> </td>
-                      {{/if}}
+                      {{!-- {{#if criticalLevel}} --}}
+
+
+                        <td> R<span class="{{criticalLevel}}" class="totalSettings">{{totals.grandTotal}}</span> </td>
+
+
+                      {{!-- {{else if warningLevel}} --}}
+                        {{!-- <td> R<span class="warning" class="totalSettings">{{totals.grandTotal}}</span> </td> --}}
+                      {{!-- {{/if}} --}}
                     </tr>
                   </table>
 

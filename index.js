@@ -13,10 +13,20 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+
+const handlebarSetup = exphbs.engine({
+    partialsDir: "./views/partials",
+    viewPath: './views',
+    layoutsDir: './views/layouts'
+});
+
 // to be able to configure express-handlebars use handlebars engine
 // app.engine('handlebars', engine());
-app.engine('handlebars', exphbs());
+app.engine('handlebars', handlebarSetup);
 app.set('view engine', 'handlebars');
+app.set('views', './views');
+
+// app.set('views', __dirname + './views/');
 
 // use static middleware to make the public folder public to the server
 app.use(express.static("public"));
