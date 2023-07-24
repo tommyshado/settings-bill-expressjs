@@ -25,10 +25,8 @@
   "contributors": [],
   "scripts": {
     "dev": "",
-    "start": "node index.js",
-    "test": ""
+    "test": "mocha"
   },
-  "license": "MIT",
   "devDependencies": {
     "mocha": "^10.2.0"
   },
