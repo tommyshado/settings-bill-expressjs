@@ -101,7 +101,9 @@ export default () => {
         const reachedWarningLevel = total >= warningLevel
             && total < criticalLevel;
 
-        return reachedWarningLevel;
+        if (reachedWarningLevel) {
+            return "warning";
+        };
     }
 
     const hasReachedCriticalLevel = () => {
