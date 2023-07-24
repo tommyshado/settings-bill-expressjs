@@ -30,7 +30,8 @@ app.get("/", (req, res) => {
     res.render("index", {
                             settings: billWithSettings.getSettings(),
                             totals: billWithSettings.totals(),
-                            criticalLevel: billWithSettings.hasReachedCriticalLevel()
+                            criticalLevel: billWithSettings.hasReachedCriticalLevel(),
+                            warningLevel: billWithSettings.hasReachedWarningLevel()
                         });
 });
 
