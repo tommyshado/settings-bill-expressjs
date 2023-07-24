@@ -1,5 +1,5 @@
 import express from "express";
-import { engine } from "express-handlebars";
+import exphbs from "express-handlebars";
 import bodyParser from "body-parser";
 import settingsBill from "./settings-bill.js";
 
@@ -14,7 +14,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // to be able to configure express-handlebars use handlebars engine
-app.engine('handlebars', engine());
+// app.engine('handlebars', engine());
+app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 // use static middleware to make the public folder public to the server
