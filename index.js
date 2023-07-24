@@ -42,7 +42,8 @@ app.get("/", (req, res) => {
                             settings: billWithSettings.getSettings(),
                             totals: billWithSettings.totals(),
                             criticalLevel: billWithSettings.hasReachedCriticalLevel(),
-                            warningLevel: billWithSettings.hasReachedWarningLevel()
+                            warningLevel: billWithSettings.hasReachedWarningLevel(),
+                            classNames: billWithSettings.classNames()
                         });
 });
 

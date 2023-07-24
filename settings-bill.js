@@ -101,17 +101,21 @@ export default () => {
         const reachedWarningLevel = total >= warningLevel
             && total < criticalLevel;
 
-        if (reachedWarningLevel) {
-            return "warning";
-        };
+        return reachedWarningLevel;
     }
 
     const hasReachedCriticalLevel = () => {
         const total = grandTotal();
-        if (total >= criticalLevel) {
-            return "danger";
-        };
+        return total >= criticalLevel;
     }
+
+    const classNames = () => {
+        if (hasReachedCriticalLevel()) {
+            return "danger";
+        } else if (hasReachedWarningLevel()) {
+            return "warning";
+        };
+    };
 
     return {
         setSettings,
@@ -121,6 +125,7 @@ export default () => {
         actionsFor,
         totals,
         hasReachedWarningLevel,
-        hasReachedCriticalLevel
+        hasReachedCriticalLevel,
+        classNames
     };
 };
