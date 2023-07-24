@@ -109,6 +109,14 @@ export default () => {
         return total >= criticalLevel;
     }
 
+    const classNames = () => {
+        if (hasReachedCriticalLevel()) {
+            return "danger";
+        } else {
+            return "warning";
+        }
+    }
+
     return {
         setSettings,
         getSettings,
@@ -117,6 +125,7 @@ export default () => {
         actionsFor,
         totals,
         hasReachedWarningLevel,
-        hasReachedCriticalLevel
+        hasReachedCriticalLevel,
+        classNames
     };
 };

@@ -38,7 +38,11 @@
                     <span class="label-body" >SMS</span>
                   </label>
                   
-                  <button class="button-primary" type="submit" name="button">Add</button>
+                  {{#if criticalLevel}}
+                    <button disabled class="button-primary" type="submit" name="button">Add</button>
+                  {{else}}
+                    <button class="button-primary" type="submit" name="button">Add</button>
+                  {{/if}}
   
                 </form>
 

@@ -29,7 +29,8 @@ app.get("/", (req, res) => {
     // values, so that we can just look up the methods returned by billWithSettings.getSettings
     res.render("index", {
                             settings: billWithSettings.getSettings(),
-                            totals: billWithSettings.totals()
+                            totals: billWithSettings.totals(),
+                            criticalLevel: billWithSettings.hasReachedCriticalLevel()
                         });
 });
 
