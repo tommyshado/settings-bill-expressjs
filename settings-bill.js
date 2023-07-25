@@ -31,8 +31,8 @@ export default () => {
 
         let cost = 0;
 
-        // when the variable sendSettingsValues is truthy then...
-        if (sendSettingsValues) {
+        // when the variable sendSettingsValues is truthy and costs are greater than 0 then...
+        if (smsCost > 0 && callCost > 0 && sendSettingsValues) {
             
             // send the values
             if (action === 'sms') {
