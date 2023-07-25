@@ -48,7 +48,7 @@ export default () => {
         actionList.push({
             type: action,
             cost,
-            timestamp: new Date()
+            timestamp: null
         });
     }
 

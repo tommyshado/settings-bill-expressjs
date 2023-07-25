@@ -73,14 +73,19 @@ app.post("/action", (req, res) => {
     res.redirect("/");
 });
 
-let actionsList = billWithSettings.actions();
+const timeStamp = () => {
+    let actionsList = billWithSettings.actions();
+    
+    for (let i = 0; i < actionsList.length; i++) {
+        actionsList[i].timestamp = moment().fromNow();
+    }
 
-for (let i = 0; i < actionsList.length; i++) {
-    actionsList[i].timestamp = moment().fromNow();
-}
+    return actionsList;
+};
+
 
 app.get("/actions", (req, res) => {
-    res.render("actions", {actions: actionsList});
+    res.render("actions", {actions: timeStamp()});
 });
 
 app.get("/actions/:actionType", (req, res) => {
