@@ -1,5 +1,3 @@
-import moment from "moment-timezone";
-
 export default () => {
 
     let smsCost;
@@ -50,7 +48,7 @@ export default () => {
         actionList.push({
             type: action,
             cost,
-            timestamp: new moment().fromNow()
+            timestamp: new Date()
         });
     }
 
