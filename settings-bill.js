@@ -7,11 +7,15 @@ export default () => {
 
     let actionList = [];
 
+    let sendSettingsValues = false;
+
     const setSettings = settings => {
         smsCost = Number(settings.smsCost);
         callCost = Number(settings.callCost);
         warningLevel = Number(settings.warningLevel);
         criticalLevel = Number(settings.criticalLevel);
+
+        sendSettingsValues = true;
     }
 
     const getSettings = () => {
@@ -27,13 +31,18 @@ export default () => {
 
         let cost = 0;
 
-        if (action === 'sms') {
-            cost = smsCost;
+        // when the variable sendSettingsValues is truthy then...
+        if (sendSettingsValues) {
+            
+            // send the values
+            if (action === 'sms') {
+                cost = smsCost;
+            }
+            
+            else if (action === 'call') {
+                cost = callCost;
+            };
         }
-        
-        else if (action === 'call') {
-            cost = callCost;
-        };
 
         actionList.push({
             type: action,
