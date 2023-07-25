@@ -32,7 +32,8 @@ export default () => {
         let cost = 0;
 
         // when the variable sendSettingsValues is truthy and costs are greater than 0 then...
-        if (smsCost > 0 && callCost > 0 && sendSettingsValues) {
+        if (smsCost > 0 && callCost > 0 && warningLevel > 0 
+            && criticalLevel > 0 && sendSettingsValues) {
             
             // send the values
             if (action === 'sms') {
@@ -95,13 +96,13 @@ export default () => {
     const grandTotal = () => getTotal('sms') + getTotal('call');
 
     const totals = () => {
-        let smsTotal = getTotal('sms');
-        let callTotal = getTotal('call');
+        let smsTotal = getTotal('sms').toFixed(2);
+        let callTotal = getTotal('call').toFixed(2);
 
         return {
             smsTotal,
             callTotal,
-            grandTotal: grandTotal()
+            grandTotal: grandTotal().toFixed(2)
         };
     };
 
@@ -119,11 +120,14 @@ export default () => {
     }
 
     const classNames = () => {
-        if (hasReachedCriticalLevel()) {
-            return "danger";
-        } else if (hasReachedWarningLevel()) {
-            return "warning";
-        };
+        
+        if (warningLevel > 0 && criticalLevel > 0) {
+            if (hasReachedCriticalLevel()) {
+                return "danger";
+            } else if (hasReachedWarningLevel()) {
+                return "warning";
+            };
+        }
     };
 
     return {
