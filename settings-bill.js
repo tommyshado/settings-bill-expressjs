@@ -43,13 +43,14 @@ export default settingsBill => {
             else if (action === 'call') {
                 cost = callCost;
             };
+            
+            actionList.push({
+                type: action,
+                cost,
+                timestamp: null
+            });
         }
 
-        actionList.push({
-            type: action,
-            cost,
-            timestamp: null
-        });
     }
 
     const actions = () => actionList;

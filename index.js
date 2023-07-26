@@ -2,7 +2,7 @@ import express from "express";
 import exphbs from "express-handlebars";
 import bodyParser from "body-parser";
 import settingsBill from "./settings-bill.js";
-import moment from "moment-timezone";
+import moment from "moment";
 
 // instance of express module
 const app = express();
