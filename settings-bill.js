@@ -130,6 +130,27 @@ export default settingsBill => {
         }
     };
 
+    // reset functionality
+
+    const resetSettings = () => {
+
+
+        smsCost = "";
+        callCost = "";
+        warningLevel = "";
+        criticalLevel = "";
+
+        sendSettingsValues = false;
+
+        return {
+            smsCost,
+            callCost,
+            warningLevel,
+            criticalLevel,
+            sendSettingsValues
+        }
+    }
+
     return {
         setSettings,
         getSettings,
@@ -139,6 +160,7 @@ export default settingsBill => {
         totals,
         hasReachedWarningLevel,
         hasReachedCriticalLevel,
-        classNames
+        classNames,
+        resetSettings
     };
 };

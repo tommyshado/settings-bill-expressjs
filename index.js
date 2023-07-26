@@ -44,7 +44,8 @@ app.get("/", (req, res) => {
                             totals: billWithSettings.totals(),
                             criticalLevel: billWithSettings.hasReachedCriticalLevel(),
                             warningLevel: billWithSettings.hasReachedWarningLevel(),
-                            classNames: billWithSettings.classNames()
+                            classNames: billWithSettings.classNames(),
+                            resetSettings: billWithSettings.resetSettings()
                         });
 });
 

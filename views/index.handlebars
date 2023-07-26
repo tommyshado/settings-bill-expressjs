@@ -43,6 +43,11 @@
                   {{else}}
                     <button class="button-primary" type="submit" name="button">Add</button>
                   {{/if}}
+
+                  {{#if resetSettings}}
+                  <button class="button-primary" type="submit" name="button">Reset Totals</button>
+                  {{/if}}
+
   
                 </form>
 
@@ -88,15 +93,18 @@
                 {{!-- step=".01" attribute helps to be able to send decimal numbers --}}
               
                 <label for="exampleEmailInput">Call cost</label>
-                <input class="u-full-width callCostSetting" type="number" name="callCost" step=".01" placeholder="eg. 2.55" value="{{settings.callCost}}">
+                <input class="u-full-width callCostSetting" type="number" name="callCost" step=".01" placeholder="eg. 2.55" value="{{settings.callCost}} {{resetSettings.callCost}}">
                 <label for="exampleEmailInput">SMS cost</label>
-                <input class="u-full-width smsCostSetting" type="number" name="smsCost" step=".01" placeholder="eg. 0.65"  value="{{settings.smsCost}}">
+                <input class="u-full-width smsCostSetting" type="number" name="smsCost" step=".01" placeholder="eg. 0.65"  value="{{settings.smsCost}} {{resetSettings.smsCost}}">
                 <label for="">Warning level</label>
-                <input class="u-full-width warningLevelSetting " type="number" name="warningLevel" step=".01" placeholder="eg. 30.00" class="warningLevel" value="{{settings.warningLevel}}">
+                <input class="u-full-width warningLevelSetting " type="number" name="warningLevel" step=".01" placeholder="eg. 30.00" class="warningLevel" value="{{settings.warningLevel}} {{resetSettings.warningLevel}}">
                 <label for="">Critical level</label>
-                <input class="u-full-width criticalLevelSetting" type="number" name="criticalLevel" step=".01" placeholder="eg. 65.00" value="{{settings.criticalLevel}}">
+                <input class="u-full-width criticalLevelSetting" type="number" name="criticalLevel" step=".01" placeholder="eg. 65.00" value="{{settings.criticalLevel}} {{resetSettings.criticalLevel}}">
                 
                 <button class="button-primary updateSettings" type="submit" name="button">Update settings</button>
+
+                <button class="button-primary updateSettings" type="submit" name="button">Reset settings</button>
+
 
               </form>
 
