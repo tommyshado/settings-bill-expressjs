@@ -1,4 +1,4 @@
-export default () => {
+export default settingsBill => {
 
     let smsCost;
     let callCost;
