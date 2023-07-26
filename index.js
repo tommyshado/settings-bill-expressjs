@@ -83,6 +83,16 @@ const timeStamp = () => {
     return actionsList;
 };
 
+const actionsTypeTimeStamp = (actionType) => {
+    let actionsList = billWithSettings.actionsFor(actionType);
+    
+    for (let i = 0; i < actionsList.length; i++) {
+        actionsList[i].timestamp = moment().fromNow();
+    }
+
+    return actionsList;
+};
+
 
 app.get("/actions", (req, res) => {
     res.render("actions", {actions: timeStamp()});
@@ -90,7 +100,7 @@ app.get("/actions", (req, res) => {
 
 app.get("/actions/:actionType", (req, res) => {
     const actionType = req.params.actionType;
-    res.render("actions", {actions: billWithSettings.actionsFor(actionType)});
+    res.render("actions", {actions: actionsTypeTimeStamp(actionType)});
 });
 
 const PORT = process.env.PORT || 3007;
