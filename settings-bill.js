@@ -43,7 +43,7 @@ export default settingsBill => {
             else if (action === 'call') {
                 cost = callCost;
             };
-            
+
             actionList.push({
                 type: action,
                 cost,
@@ -136,10 +136,10 @@ export default settingsBill => {
     const resetSettings = () => {
 
 
-        smsCost = "";
-        callCost = "";
-        warningLevel = "";
-        criticalLevel = "";
+        smsCost = 0;
+        callCost = 0;
+        warningLevel = 0;
+        criticalLevel = 0;
 
         sendSettingsValues = false;
 

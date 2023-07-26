@@ -2,7 +2,7 @@ import express from "express";
 import exphbs from "express-handlebars";
 import bodyParser from "body-parser";
 import settingsBill from "./settings-bill.js";
-import moment from "moment";
+import moment from "moment-timezone";
 
 // instance of express module
 const app = express();
@@ -77,17 +77,17 @@ const timeStamp = () => {
     let actionsList = billWithSettings.actions();
     
     for (let i = 0; i < actionsList.length; i++) {
-        actionsList[i].timestamp = moment().fromNow();
+        actionsList[i].timestamp = moment().format('MMMM Do YYYY, h:mm:ss a');
     }
 
     return actionsList;
 };
 
-const actionsTypeTimeStamp = (actionType) => {
+const actionsTypeTimeStamp = actionType => {
     let actionsList = billWithSettings.actionsFor(actionType);
     
     for (let i = 0; i < actionsList.length; i++) {
-        actionsList[i].timestamp = moment().fromNow();
+        actionsList[i].timestamp = moment().format('MMMM Do YYYY, h:mm:ss a');
     }
 
     return actionsList;
