@@ -44,8 +44,7 @@ app.get("/", (req, res) => {
                             totals: billWithSettings.totals(),
                             criticalLevel: billWithSettings.hasReachedCriticalLevel(),
                             warningLevel: billWithSettings.hasReachedWarningLevel(),
-                            classNames: billWithSettings.classNames(),
-                            resetSettings: billWithSettings.resetSettings()
+                            classNames: billWithSettings.classNames()
                         });
 });
 
@@ -102,6 +101,11 @@ app.get("/actions", (req, res) => {
 app.get("/actions/:actionType", (req, res) => {
     const actionType = req.params.actionType;
     res.render("actions", {actions: actionsTypeTimeStamp(actionType)});
+});
+
+app.post("/resetSettings", (req, res) => {
+    billWithSettings.resetSettings();
+    res.redirect("/");
 });
 
 const PORT = process.env.PORT || 3007;

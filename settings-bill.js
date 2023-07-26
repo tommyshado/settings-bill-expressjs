@@ -146,8 +146,7 @@ export default settingsBill => {
             smsCost,
             callCost,
             warningLevel,
-            criticalLevel,
-            sendSettingsValues
+            criticalLevel
         }
     }
 
