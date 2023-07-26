@@ -90,7 +90,7 @@ app.get("/actions", (req, res) => {
 
 app.get("/actions/:actionType", (req, res) => {
     const actionType = req.params.actionType;
-    res.render("actions", {actions: timeStamp()});
+    res.render("actions", {actions: billWithSettings.actionsFor(actionType)});
 });
 
 const PORT = process.env.PORT || 3007;
