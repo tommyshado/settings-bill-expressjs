@@ -10,6 +10,13 @@ describe('settings-bill', () => {
     });
 
     it('should be able to record calls', function(){
+        SettingsBill.setSettings({
+            smsCost: 2.25,
+            callCost: 4.35,
+            warningLevel: 20,
+            criticalLevel: 35
+        })
+
         SettingsBill.recordAction('call');
         assert.equal(1, SettingsBill.actionsFor('call').length);
     });
