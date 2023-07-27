@@ -103,8 +103,8 @@ app.get("/actions/:actionType", (req, res) => {
     res.render("actions", {actions: actionsTypeTimeStamp(actionType)});
 });
 
-app.post("/resetSettings", (req, res) => {
-    billWithSettings.resetSettings();
+app.post("/reset", (req, res) => {
+    billWithSettings.reset();
     res.redirect("/");
 });
 

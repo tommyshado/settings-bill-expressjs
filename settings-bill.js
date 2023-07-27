@@ -133,7 +133,7 @@ export default settingsBill => {
 
     // reset functionality
 
-    const resetSettings = () => {
+    const reset = () => {
 
 
         smsCost = 0;
@@ -142,6 +142,7 @@ export default settingsBill => {
         criticalLevel = 0;
 
         sendSettingsValues = false;
+        actionList = [];
 
         return {
             smsCost,
@@ -161,6 +162,6 @@ export default settingsBill => {
         hasReachedWarningLevel,
         hasReachedCriticalLevel,
         classNames,
-        resetSettings
+        reset
     };
 };
