@@ -144,12 +144,12 @@ export default settingsBill => {
         sendSettingsValues = false;
         actionList = [];
 
-        return {
-            smsCost,
-            callCost,
-            warningLevel,
-            criticalLevel
-        }
+        // return {
+        //     smsCost,
+        //     callCost,
+        //     warningLevel,
+        //     criticalLevel
+        // }
     }
 
     return {
